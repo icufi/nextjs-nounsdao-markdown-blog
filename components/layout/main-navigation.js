@@ -1,9 +1,25 @@
-
+import { Link } from 'next/link';
 
 const MainNavigation = () => {
   return (
-    <div>MainNavigation</div>
-  )
-}
+    <header>
+      <Link href='/'>
+        <a>
+          <Logo />
+        </a>
+      </Link>
+      <nav>
+        <ul>
+          <li>
+            <Link href='/posts'>Posts</Link>
+          </li>
+          <li>
+            <Link href='/contact'>Contact</Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
+};
 
-export default MainNavigation
+export default MainNavigation;
