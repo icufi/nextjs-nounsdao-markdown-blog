@@ -1,44 +1,18 @@
 import AllPosts from '../../components/posts/all-posts';
+import { getAllPosts } from '../../helpers/posts-util';
 
-const AllPostsPage = () => {
-  const TEST_POSTS = [
-    {
-      slug: 'this-is-a-test',
-      title: 'Test Title',
-      image: 'test-image.png',
-      excerpt: 'This is a test of a test of a test blog.',
-      date: '2022-06-28',
-    },
-    {
-      slug: 'this-is-a-test2',
-      title: 'Test Title',
-      image: 'test-image.png',
-      excerpt: 'This is a test of a test of a test blog.',
-      date: '2022-06-28',
-    },
-    {
-      slug: 'this-is-a-test3',
-      title: 'Test Title',
-      image: 'test-image.png',
-      excerpt: 'This is a test of a test of a test blog.',
-      date: '2022-06-28',
-    },
-    {
-      slug: 'this-is-a-test4',
-      title: 'Test Title',
-      image: 'test-image.png',
-      excerpt: 'This is a test of a test of a test blog.',
-      date: '2022-06-28',
-    },
-    {
-      slug: 'this-is-a-test5',
-      title: 'Test Title',
-      image: 'test-image.png',
-      excerpt: 'This is a test of a test of a test blog.',
-      date: '2022-06-28',
-    },
-  ];
-  return <AllPosts posts={TEST_POSTS} />;
+const AllPostsPage = (props) => {
+  return <AllPosts posts={props.posts} />;
 };
+
+export function getStaticProps() {
+  const allPosts = getAllPosts();
+
+  return {
+    props: {
+      posts: allPosts,
+    },
+  };
+}
 
 export default AllPostsPage;
