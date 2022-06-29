@@ -2,52 +2,26 @@ import { Fragment } from 'react';
 
 import Hero from '../components/home-page/Hero';
 import FeaturedPosts from '../components/home-page/featured-posts';
+import { getFeaturedPosts } from '../helpers/posts-util';
 
-const TEST_POSTS = [
-  {
-    slug: 'this-is-a-test',
-    title: 'Test Title',
-    image: 'test-image.png',
-    excerpt: 'This is a test of a test of a test blog.',
-    date: '2022-06-28',
-  },
-  {
-    slug: 'this-is-a-test2',
-    title: 'Test Title',
-    image: 'test-image.png',
-    excerpt: 'This is a test of a test of a test blog.',
-    date: '2022-06-28',
-  },
-  {
-    slug: 'this-is-a-test3',
-    title: 'Test Title',
-    image: 'test-image.png',
-    excerpt: 'This is a test of a test of a test blog.',
-    date: '2022-06-28',
-  },
-  {
-    slug: 'this-is-a-test4',
-    title: 'Test Title',
-    image: 'test-image.png',
-    excerpt: 'This is a test of a test of a test blog.',
-    date: '2022-06-28',
-  },
-  {
-    slug: 'this-is-a-test5',
-    title: 'Test Title',
-    image: 'test-image.png',
-    excerpt: 'This is a test of a test of a test blog.',
-    date: '2022-06-28',
-  },
-];
-
-const HomePage = () => {
+const HomePage = (props) => {
   return (
     <Fragment>
       <Hero />
-      <FeaturedPosts posts={TEST_POSTS} />
+      <FeaturedPosts posts={props.posts} />
     </Fragment>
   );
 };
+
+export function getStaticProps() {
+  const featuredPosts = getFeaturedPosts();
+
+  return {
+    props: {
+      posts: featuredPosts,
+    },
+    revalidate: 1080,
+  };
+}
 
 export default HomePage;
