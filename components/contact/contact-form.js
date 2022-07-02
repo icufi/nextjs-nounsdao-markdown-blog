@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Notification from '../ui/notification';
 
@@ -26,6 +26,15 @@ const ContactForm = () => {
   const [enteredMessage, setEnteredMessage] = useState('');
   const [requestStatus, setRequestStatus] = useState();
   const [requestError, setRequestError] = useState();
+
+  useEffect(() => {
+    if (requestStatus === 'pending' || requestStatus === 'error') {
+      setTimeout(() => {
+        setRequestStatus(null);
+        setRequestError(null);
+      }, 3000);
+    }
+  }, [requestStatus]);
 
   async function sendMessageHandler(event) {
     event.preventDefault();
