@@ -29,7 +29,7 @@ const ContactForm = () => {
 
   useEffect(() => {
     if (requestStatus === 'success' || requestStatus === 'error') {
-     const timer = setTimeout(() => {
+      const timer = setTimeout(() => {
         setRequestStatus(null);
         setRequestError(null);
       }, 3000);
