@@ -1,8 +1,8 @@
 import PostContent from '../../components/posts/post-detail/post-content';
 import { getPostData, getPostFiles } from '../../helpers/posts-util';
 
-const SinglePostPage = () => {
-  return <PostContent />;
+const SinglePostPage = (props) => {
+  return <PostContent post={props.post} />;
 };
 
 export function getStaticProps(context) {
