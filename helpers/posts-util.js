@@ -5,7 +5,7 @@ import matter from 'gray-matter';
 
 const postsDir = path.join(process.cwd(), 'posts');
 
-export const getPostFiles = () => fs.readdirSinc(postsDir);
+export const getPostFiles = () => fs.readdirSync(postsDir);
 
 export const getPostData = (postIdentifier) => {
   const postSlug = postIdentifier.replace(/\.md$/, ''); // this removes file extension
