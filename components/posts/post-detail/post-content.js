@@ -29,7 +29,7 @@ const PostContent = (props) => {
         return (
           <div className={classes.image}>
             <Image
-              src={`images/posts/${post.slug}/${image.src}`}
+              src={`images/posts/${post.slug}/${image.url}`}
               alt={image.alt}
               width={600}
               height={300}
