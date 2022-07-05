@@ -15,7 +15,7 @@ module.exports = (phase) => {
   // in production values
   return {
     env: {
-      mongodb_username: '777',
+      mongodb_username: '',
       mongodb_password: '',
       mongodb_clusterName: '',
       mongodb_database: '',
